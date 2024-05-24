@@ -4,7 +4,6 @@
    Year = 2024
    Linkedin = www.linkedin.com/in/vishal-raj007
 """
-import logging
 import argparse
 import sys
 from SprayO365 import *
@@ -36,7 +35,7 @@ def main():
   userList_path = args.userList
   passList_path = args.passList
   threshold = args.threshold
-  delay = 0
+  logging.info('[+] Script Start')
   try:
     with open(userList_path,'r') as file:
       users = file.read().splitlines()
@@ -44,6 +43,7 @@ def main():
       passwords = file.read().splitlines()
   except FileNotFoundError as e:
     print(f"File {e.filename} doesnot exist.")
+    logging.exception("e")
     sys.exit(-1)
 
   if args.output:
@@ -64,6 +64,7 @@ def main():
       for result in attack.full_result:
           file.write(result + "\n")  
     print(TextColor.GREEN + f"Results have been written to {outputFile}." + TextColor.RESET)
+    logging.info(f"[+] Result save in {outputFile}")
 
 if __name__=='__main__':
   main()
