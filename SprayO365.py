@@ -120,6 +120,7 @@ class sprayAttack(TextColor):
     except requests.RequestException as msg:
       print(f"Error occure: {msg}")
       logging.exception(msg)
+      logging.info('[+] Script Stop\n')
       sys.exit(-1)
     except KeyboardInterrupt as msg:
       print("\nKeybord Intruption:\nQuitting the process....")
@@ -132,7 +133,7 @@ class sprayAttack(TextColor):
                 file.write(result + "\n")  
           print(TextColor.GREEN + f"[+] Results have been written to {self.output}." + TextColor.RESET)
           logging.info(f"[+] Result save in {self.output}")
-          logging.info('[+] Script Stop')
+          logging.info('[+] Script Stop\n')
         else: pass
       sys.exit(-1)
 

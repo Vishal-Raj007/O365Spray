@@ -44,6 +44,7 @@ def main():
   except FileNotFoundError as e:
     print(f"File {e.filename} doesnot exist.")
     logging.exception("e")
+    logging.info('[+] Script Stop\n')
     sys.exit(-1)
 
   if args.output:
@@ -58,8 +59,6 @@ def main():
   for password in passwords:
     for user in users:
       attack.passwordSpray(user,password)
-    
-    logging.info('[+] Script Stop')
   
   if args.output:
     with open(outputFile,'a')as file:
@@ -67,7 +66,7 @@ def main():
           file.write(result + "\n")  
     print(TextColor.GREEN + f"Results have been written to {outputFile}." + TextColor.RESET)
     logging.info(f"[+] Result save in {outputFile}")
-    logging.info('[+] Script Stop')
+    logging.info('[+] Script Stop\n')
 
 if __name__=='__main__':
   main()
