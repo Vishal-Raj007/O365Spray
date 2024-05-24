@@ -1,0 +1,5 @@
+requests
+argparse
+subprocess
+time
+platform
