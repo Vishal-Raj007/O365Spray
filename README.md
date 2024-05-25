@@ -29,7 +29,7 @@ options:
   -h, --help    show this help message and exit
   -u, --userList username_list  File name which contain User List.
   -p, --passList passwords_list  File name which contain List of Passwords.
-  -t, --threshold {slow,medium,fast,veryfast}   Set the speed threshold for the attack (slow, medium, fast). Default is fast.
+  -t, --threshold {slow,medium,fast,veryfast}   Set the speed threshold for the attack (slow, medium, fast, veryfast). Default is fast.
   -o, --output output_filename  File name which contain User List.
 ```
 
@@ -52,7 +52,7 @@ pip3 install -r requirements.txt
 
 ```bash
 chmod +x main.py
-python3 main.py -u username_list -p passwords_list -threshold {slow,medium,fast,veryfast} -o output_filename
+python3 main.py -u username_list -p passwords_list -t {slow,medium,fast,veryfast} -o output_filename
 ```
 
 ## Contributing
