@@ -88,13 +88,13 @@ class sprayAttack(TextColor):
 
         elif "AADSTS50079" in resp_err or "AADSTS50076" in resp_err:
             print(TextColor.MAGENTA + f"[+] SUCCESS! {self.user} : {self.password} - NOTE: The response indicates MFA (Microsoft) is in use." + TextColor.RESET)
-            self.full_results.append(f"{self.user} : {self.password} - NOTE: The response indicates MFA (Microsoft) is in use.")
+            self.full_result.append(f"{self.user} : {self.password} - NOTE: The response indicates MFA (Microsoft) is in use.")
             logging.info(f"[+] SUCCESS! {self.user} : {self.password} - NOTE: The response indicates MFA (Microsoft) is in use.")
 
         elif "AADSTS50158" in resp_err:
             print(TextColor.MAGENTA + f"[+] SUCCESS! {self.user} : {self.password} - NOTE: The response indicates conditional access (MFA: DUO or other) is in use." + TextColor.RESET)
             logging.info(f"[+] SUCCESS! {self.user} : {self.password} - NOTE: The response indicates conditional access (MFA: DUO or other) is in use.")
-            self.full_results.append(f"{self.user} : {self.password} - NOTE: The response indicates conditional access (MFA: DUO or other) is in use.")
+            self.full_result.append(f"{self.user} : {self.password} - NOTE: The response indicates conditional access (MFA: DUO or other) is in use.")
 
         elif "AADSTS50053" in resp_err:
             print(TextColor.YELLOW + f"[*] WARNING! The account {self.user} appears to be locked." + TextColor.RESET)
@@ -106,7 +106,7 @@ class sprayAttack(TextColor):
 
         elif "AADSTS50055" in resp_err:
             print(TextColor.MAGENTA + f"[+] SUCCESS! {self.user} : {self.password} - NOTE: The user's password is expired." + TextColor.RESET)
-            self.full_results.append(f"{self.user} : {self.password} - NOTE: The user's password is expired.")
+            self.full_result.append(f"{self.user} : {self.password} - NOTE: The user's password is expired.")
             logging.info(f"[+] SUCCESS! {self.user} : {self.password} - NOTE: The user's password is expired.")
             
         else:
