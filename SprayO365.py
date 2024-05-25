@@ -72,7 +72,7 @@ class sprayAttack(TextColor):
         self.full_result.append(f"[+]Credentials found successfully for User! {self.user}:{self.password}")
       else:
         resp_err = self.response.text
-        logging.error("[-] Authentication failed for user: {self.user} with password: {self.password}")
+        logging.error(f"[-] Authentication failed for user: {self.user} with password: {self.password}")
         #Reference list of all the Azure AD Authentication and Authorization Error Code: https://bit.ly/3yH8mXd
         if "AADSTS50126" in resp_err:
             print(TextColor.RED + f"[-] Invalid Password for user:{self.user}:{self.password}" + TextColor.RESET)
